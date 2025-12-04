@@ -70,9 +70,13 @@ export const server = {
       } else {
         const users = db.users.getAll();
         user = users.find((u: User) => u.username === username);
-        if (!user) return error('Неверные учетные данные', 401);
       }
 
+      if (!user) {
+        return error('Неверные учетные данные', 401);
+      }
+
+      // At this point, TypeScript knows 'user' is definitely a User object
       const token = generateToken();
       const session: AuthSession = {
         token,

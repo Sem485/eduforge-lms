@@ -205,7 +205,7 @@ const generatePPTX = async (data: { course: Course, modules: Module[], lessons: 
     }
   }
 
-  return await pres.write("blob");
+  return await pres.write({ outputType: 'blob' });
 };
 
 // --- ZIP GENERATOR ---
