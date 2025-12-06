@@ -7,7 +7,8 @@ export default {
     "./contexts/**/*.{js,ts,jsx,tsx}",
     "./services/**/*.{js,ts,jsx,tsx}",
     "./lib/**/*.{js,ts,jsx,tsx}",
-    "./*.{js,ts,jsx,tsx}"
+    "./App.tsx",
+    "./index.tsx"
   ],
   theme: {
     extend: {

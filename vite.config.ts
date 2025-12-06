@@ -9,9 +9,20 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            if (id.includes('@supabase')) return 'supabase';
+            // Split core React dependencies
             if (id.includes('react')) return 'react';
+            if (id.includes('react-dom')) return 'react';
+            if (id.includes('react-router')) return 'react-router';
+            
+            // Split Supabase
+            if (id.includes('@supabase')) return 'supabase';
+            
+            // Split UI and Utility libraries (Heavy)
             if (id.includes('lucide')) return 'lucide';
+            if (id.includes('pptxgenjs')) return 'pptx';
+            if (id.includes('jszip')) return 'zip';
+            
+            // Default vendor chunk for everything else
             return 'vendor';
           }
         }
